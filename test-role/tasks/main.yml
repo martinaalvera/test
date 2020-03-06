@@ -1,0 +1,29 @@
+---
+
+- name: Include postgresql role
+  include_role:
+    name: galaxyproject.postgresql
+- name: Include natefoo role
+  include_role:
+    name: natefoo.postgresql_objects
+    apply:
+      become: true
+      become_user: postgres
+- name: Include geerlingguy role
+  include_role:
+    name: geerlingguy.pip
+- name: Include galaxy role
+  include_role:
+    name: galaxyproject.galaxy
+- name: Include miniconda role
+  include_role:
+    name: uchida.miniconda
+    apply:
+      become: true
+      become_user: galaxy
+- name: Include systemd role
+  include_role:
+    name: usegalaxy_eu.galaxy_systemd
+- name: Include nginx role
+  include_role:
+    name: galaxyproject.nginx
